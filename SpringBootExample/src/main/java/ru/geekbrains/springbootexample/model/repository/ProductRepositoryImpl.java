@@ -5,7 +5,7 @@ import ru.geekbrains.springbootexample.model.entity.Product;
 
 import java.util.List;
 
-@Component
+
 public class ProductRepositoryImpl implements ProductRepository{
 
     private final List<Product> products;
@@ -27,5 +27,10 @@ public class ProductRepositoryImpl implements ProductRepository{
     @Override
     public void saveProduct(Product product) {
         products.add(product);
+    }
+
+    @Override
+    public void deleteProduct(int id) {
+
     }
 }
