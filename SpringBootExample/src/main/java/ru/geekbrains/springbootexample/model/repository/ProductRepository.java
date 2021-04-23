@@ -11,4 +11,6 @@ public interface ProductRepository {
     List<Product> getProducts();
 
     void saveProduct(Product product);
+
+    void deleteProduct(int id);
 }

@@ -1,19 +1,30 @@
 package ru.geekbrains.springbootexample.model.entity;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "products")
+@NamedQueries(
+        @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"))
 public class Product {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "cost")
     private BigDecimal cost;
 
     public Product() {}
 
     public Product(int id, String title, BigDecimal cost) {
-        this.id = id;
         this.title = title;
         this.cost = cost;
     }
@@ -30,7 +41,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return title + ", cost=" + cost;
+        return id + "_" + title + ", cost=" + cost;
     }
 
     public int getId() {
@@ -45,9 +56,7 @@ public class Product {
         return cost;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) {}
 
     public void setTitle(String title) {
         this.title = title;
