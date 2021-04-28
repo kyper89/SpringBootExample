@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Products</title>
+    </head>
+
+    <body>
+        <form th:action="@{/products}" th:object="${product}" method="post">
+            <p>Title: <input type="text" th:field="*{title}">
+                <br>
+                Cost: <input type="text" th:field="*{cost}">
+                <br>
+                <button type="submit">Save</button>
+        </form>
+
+        <h1>All products</h1>
+        <p th:each="product : ${products}" th:text="${product.toString()}"></p>
+
+        <form action="/products/delete" method="get">
+            <p><label for="id">ID</label>
+                <input type="number" id="id" name="id">
+                <br>
+                <button type="submit">Delete</button>
+        </form>
+    </body>
+</html>
