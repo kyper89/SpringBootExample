@@ -14,13 +14,21 @@ public class Product {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "title")
     private String title;
 
     @Column(name = "cost")
     private BigDecimal cost;
+
+    @ManyToMany
+    @JoinTable(
+            name = "products_clients",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "client_id")
+    )
+    private List<Client> clients;
 
     public Product() {}
 
@@ -44,8 +52,12 @@ public class Product {
         return id + "_" + title + ", cost=" + cost;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -56,8 +68,6 @@ public class Product {
         return cost;
     }
 
-    public void setId(int id) {}
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -65,4 +75,13 @@ public class Product {
     public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
+
 }

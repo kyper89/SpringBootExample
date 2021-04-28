@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class ProductDao implements ProductRepository{
-
     private final EntityManager em;
 
     public ProductDao(EntityManager entityManager) {
@@ -17,7 +16,7 @@ public class ProductDao implements ProductRepository{
     }
 
     @Override
-    public Product getProduct(int id) {
+    public Product get(Long id) {
         return em.find(Product.class, id);
     }
 

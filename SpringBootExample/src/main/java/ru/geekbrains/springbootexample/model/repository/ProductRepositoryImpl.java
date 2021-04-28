@@ -1,6 +1,5 @@
 package ru.geekbrains.springbootexample.model.repository;
 
-import org.springframework.stereotype.Component;
 import ru.geekbrains.springbootexample.model.entity.Product;
 
 import java.util.List;
@@ -15,7 +14,7 @@ public class ProductRepositoryImpl implements ProductRepository{
     }
 
     @Override
-    public Product getProduct(int id) {
+    public Product get(Long id) {
         return products.stream().filter(p -> p.getId() == id).findFirst().get();
     }
 
