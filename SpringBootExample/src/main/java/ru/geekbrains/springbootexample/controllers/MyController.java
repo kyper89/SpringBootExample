@@ -33,7 +33,7 @@ public class MyController {
     }
 
     @GetMapping (value = "/products/delete")
-    public String deleteProduct(Model uiModel, @RequestParam(name = "id") int id){
+    public String deleteProduct(Model uiModel, @RequestParam(name = "id") Long id){
         System.out.println("GetMapping/delete");
         productRepository.deleteProduct(id);
         uiModel.addAttribute("products", productRepository.getProducts());

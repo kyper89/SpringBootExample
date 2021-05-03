@@ -25,8 +25,8 @@ public class Product {
     @ManyToMany
     @JoinTable(
             name = "products_clients",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "client_id")
+            joinColumns = @JoinColumn(name = "products_id"),
+            inverseJoinColumns = @JoinColumn(name = "clients_id")
     )
     private List<Client> clients;
 

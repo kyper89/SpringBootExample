@@ -34,7 +34,7 @@ public class ProductDao implements ProductRepository{
     }
 
     @Override
-    public void deleteProduct(int id) {
+    public void deleteProduct(Long id) {
         em.getTransaction().begin();
         em.remove(em.find(Product.class, id));
         em.getTransaction().commit();
