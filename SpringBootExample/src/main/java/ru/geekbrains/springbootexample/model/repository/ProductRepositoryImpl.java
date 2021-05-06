@@ -29,7 +29,7 @@ public class ProductRepositoryImpl implements ProductRepository{
     }
 
     @Override
-    public void deleteProduct(int id) {
+    public void deleteProduct(Long id) {
 
     }
 }

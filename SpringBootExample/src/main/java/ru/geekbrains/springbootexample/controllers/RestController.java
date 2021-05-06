@@ -50,4 +50,10 @@ public class RestController {
         return "products";
     }
 
+    @PostMapping(value = "/deleteProduct")
+    public String deleteProduct(Model uiModel, Product product){
+        System.out.println("delete product " + product.getTitle());
+        productRepository.delete(product);
+        return "redirect:/products";
+    }
 }
